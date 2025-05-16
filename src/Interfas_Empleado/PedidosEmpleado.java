@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-class PedidosEmpleado extends JFrame{
+public class PedidosEmpleado  extends JFrame{
     public PedidosEmpleado(){
         setDefaultCloseOperation(EXIT_ON_CLOSE);//para que no queden registros en la ram
         setTitle("Pedidos Para Tomar la Orden");
@@ -74,9 +74,5 @@ class PedidosEmpleado extends JFrame{
             }
         });
 
-    }
-}
-public class Pedidos {
-    public static void main(String[] args) {
     }
 }

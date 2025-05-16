@@ -93,6 +93,14 @@ class  ActulizarPedidosEmpleado  extends JFrame implements ActionListener {
         btnPanelTres.setBounds(250,170, 170,20);
         btnPanelTres.setBackground(new Color(254,195,125));
         panelPedidos.add(btnPanelTres);
+        btnPanelTres.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                panelGeneral.remove(panelPedidos);
+                panelGeneral.revalidate();
+                panelGeneral.repaint();
+            }
+        });
 
         panelGeneral.add(panelPedidos);
 
