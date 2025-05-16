@@ -2,6 +2,8 @@ package Interfas_Empleado;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 class VentanaEmpleado extends JFrame{
     public VentanaEmpleado() {
@@ -76,6 +78,17 @@ class VentanaEmpleado extends JFrame{
         btnPanelUno.setBounds(30,260, 170,20);
         btnPanelUno.setBackground(new Color(254,195,125));
         add(btnPanelUno);
+        btnPanelUno.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        new EditarProductoEmpleado();
+                    }
+                });
+            }
+        });
 
         JButton btnPanelDos = new JButton("EDITAR");
         btnPanelDos.setBounds(240,260, 170,20);
@@ -86,10 +99,6 @@ class VentanaEmpleado extends JFrame{
         btnPanelTres.setBounds(450,260, 170,20);
         btnPanelTres.setBackground(new Color(254,195,125));
         add(btnPanelTres);
-
-
-
-
 
     }
     public void añadirPanel(JLabel txtDescripcion, JLabel txtPrecio, JLabel txtImagen, JPanel panelX){

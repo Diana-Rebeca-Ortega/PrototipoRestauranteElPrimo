@@ -2,6 +2,8 @@ package Interfas_Empleado;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 class PedidosEmpleado extends JFrame{
     public PedidosEmpleado(){
@@ -18,6 +20,12 @@ class PedidosEmpleado extends JFrame{
         JButton btnRegresar = new JButton( new ImageIcon(imRegresarScala) );
         btnRegresar.setBounds(15,10,100,40);
         add(btnRegresar);
+        btnRegresar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+            }
+        });
 
         ImageIcon imPedidos = new ImageIcon("C:\\Users\\Marcelo\\Documents\\000SEXTO\\practicas2025IntelliJ\\PrototipoRestauranteElPrimo\\src\\ICONOS\\pedidosP.png");
         Image im = imPedidos.getImage().getScaledInstance(100,40, Image.SCALE_SMOOTH);
@@ -26,13 +34,17 @@ class PedidosEmpleado extends JFrame{
         add(txtPedidos);
 
         JLabel txtPlatillo, txtCantidadPlatillo, txtBebida, txtCantidadBebida, txtCliente, txtTipoEntrega, txtTiempoEstimado;
-        txtPlatillo=new JLabel("Platillo:");
-        txtCantidadPlatillo = new JLabel("Cantidad:");
-        txtBebida = new JLabel("Bebida:");
-        txtCantidadBebida = new JLabel("Cantidad:");
-        txtCliente = new JLabel("Cliente:");
-        txtTipoEntrega = new JLabel("Tipo de entrega: ");
+        txtPlatillo=new JLabel("Platillo: Tacos de chorizo");
+        txtCantidadPlatillo = new JLabel("Cantidad: 1 orden");
+        txtBebida = new JLabel("Bebida: Pepsi ");
+        txtCantidadBebida = new JLabel("Cantidad:600ml");
+        txtCliente = new JLabel("Cliente: Joaquin Guzman");
+        txtTipoEntrega = new JLabel("Tipo de entrega: restaurante ");
         txtTiempoEstimado = new JLabel("Tiempo Estimado:");
+
+        JTextField cajaTiempo = new JTextField(5);
+        cajaTiempo.setBounds(140,280,50,20);
+        add(cajaTiempo);
 
         txtPlatillo.setBounds(30,100,300,20);
         txtCantidadPlatillo.setBounds(30,130,300,20);
@@ -55,16 +67,16 @@ class PedidosEmpleado extends JFrame{
         btnACTUALIZAR.setBackground(new Color(254,195,125));
         btnACTUALIZAR.setBounds(getWidth()-120,getHeight()-100, 100,25);
         add(btnACTUALIZAR);
+        btnACTUALIZAR.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+            }
+        });
 
     }
 }
 public class Pedidos {
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new PedidosEmpleado();
-            }
-        });
     }
 }

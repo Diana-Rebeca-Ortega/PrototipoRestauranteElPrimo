@@ -2,8 +2,11 @@ package Interfas_Empleado;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-class  ActulizarPedidosEmpleado  extends JFrame{
+class  ActulizarPedidosEmpleado  extends JFrame implements ActionListener {
+    JButton btnPerfil;
     public ActulizarPedidosEmpleado(){
         setDefaultCloseOperation(EXIT_ON_CLOSE);//para que no queden registros en la ram
         setTitle("Menu Empleado");
@@ -76,10 +79,11 @@ class  ActulizarPedidosEmpleado  extends JFrame{
 
         ImageIcon imPerfil = new ImageIcon("C:\\Users\\Marcelo\\Documents\\000SEXTO\\practicas2025IntelliJ\\PrototipoRestauranteElPrimo\\src\\ICONOS\\fotoPerfilNaranjaP.png");
         Image imPerfilScala = imPerfil.getImage().getScaledInstance(60,60, Image.SCALE_SMOOTH);
-        JButton btnPerfil = new JButton( new ImageIcon(imPerfilScala) );
+         btnPerfil = new JButton( new ImageIcon(imPerfilScala) );
         btnPerfil.setBorder(BorderFactory.createLineBorder(new Color(255,251,216,255)));
         btnPerfil.setBounds(15,10,60,60);
         panelPedidos.add(btnPerfil);
+        btnPerfil.addActionListener(this);
 
         JLabel txtYaFueEntregado = new JLabel("¿Ya fue entregado el pedido?");
         txtYaFueEntregado.setBounds(250,150,200,20);
@@ -95,6 +99,18 @@ class  ActulizarPedidosEmpleado  extends JFrame{
         JLabel txtHistorial = new JLabel("Ver historial de ventas");
         txtHistorial.setBounds(5,getHeight()-60,200,20);
         add(txtHistorial);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource()==btnPerfil){
+            SwingUtilities.invokeLater(new Runnable() {
+                @Override
+                public void run() {
+                    new PedidosEmpleado();
+                }
+            });
+        }
     }
 }
 
